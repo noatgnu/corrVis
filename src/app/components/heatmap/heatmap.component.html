@@ -28,5 +28,10 @@
 
 </div>
 
-<plotly-plot [data]="graphData" [layout]="graphLayout" [updateOnLayoutChange]="true" [updateOnDataChange]="true" [config]="{responsive:true}">
+<plotly-plot divId="heatmap" [data]="graphData" [layout]="graphLayout" [updateOnLayoutChange]="true" [updateOnDataChange]="true" [config]="{responsive:true}">
 </plotly-plot>
+
+<div class="container mt-2 mb-2">
+  <button class="btn btn-sm btn-primary mx-auto" (click)="downloadPlotlyExtra('svg')">Download SVG</button>
+</div>
+
