@@ -33,7 +33,7 @@ export class HeatmapComponent implements OnInit {
   async downloadPlotlyExtra(format: string) {
     const graph = this.plotly.getInstanceByDivId("heatmap");
     const p = await this.plotly.getPlotly();
-    const data = await p.toImage(graph, {format: format, width: 1000, height: 1000, filename: "image."+format, imageDataOnly: false})
+    await p.downloadImage(graph, {format: format, width: 1000, height: 1000, filename: "image."+format})
 
   }
 
