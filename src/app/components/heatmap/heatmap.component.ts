@@ -1,6 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {DataFrame, IDataFrame} from "data-forge";
-import {min} from "rxjs/operators";
 import {PlotlyService} from "angular-plotly.js";
 
 @Component({
@@ -34,7 +33,8 @@ export class HeatmapComponent implements OnInit {
   async downloadPlotlyExtra(format: string) {
     const graph = this.plotly.getInstanceByDivId("heatmap");
     const p = await this.plotly.getPlotly();
-    await p.downloadImage(graph, {format: format, width: 1000, height: 1000, filename: "image."+format})
+    const data = await p.toImage(graph, {format: format, width: 1000, height: 1000, filename: "image."+format, imageDataOnly: false})
+
   }
 
   ngOnInit(): void {
